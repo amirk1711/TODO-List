@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>
+            My Tasks
+        </title>
+    </head>
+
+    <body>
+
+        <form action="/add-task" method="POST">
+
+            <input type="text" name="description">
+
+            <select name="category" id="category">
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <input type="date" name="dueDate" value="dd-mm-yyyy">
+
+            <input type="submit" value="Add Task">
+
+        </form>
+
+        
+        <div>
+            <ul>
+                <% for(let i = 0; i < todo_list.length; i++){%>
+                    <li>
+                        <p>Description: <%= todo_list[i].description %></p>
+                        <p>Category: <%= todo_list[i].category %></p>
+                        <p>Due Date: <%= todo_list[i].dueDate %></p>
+                    </li>
+                    
+                    <div class="btn">
+                        <a href="/complete-task/?_id=<%= todo_list[i]._id %>"> Done </a>
+                        <a href="/delete-task/?_id=<%= todo_list[i]._id %>"> Delete </a>
+                    </div>
+                    
+                <% } %>
+            </ul>
+        </div>
+    </body>
+</html>
