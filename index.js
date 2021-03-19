@@ -3,10 +3,9 @@ const app = express();
 const port = 8000;
 
 const db = require('./config/mongoose');
-// const TaskList = require('./models/tasks');
 
 // use for styles and scripts
-// app.use(express.static('./assets'));
+app.use(express.static('./assets'));
 
 // setup view engine
 app.set('view engine', 'ejs');
