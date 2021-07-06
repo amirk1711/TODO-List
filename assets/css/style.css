@@ -1,143 +1,170 @@
-
-body{
-    width: 80%;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    margin: auto;
+body {
+	width: 80%;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	margin: auto;
 }
 
 h1 {
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 2%;
-    color: rgb(121, 120, 120);
+	text-align: center;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+		sans-serif;
+	margin-top: 2%;
+	color: rgb(121, 120, 120);
 }
 
-
 #desc-container {
-    border-top: 1px solid rgb(170, 170, 170);
-    border-bottom: 1px solid rgb(170, 170, 170);
-    padding: 6px;
+	border-top: 1px solid rgb(170, 170, 170);
+	border-bottom: 1px solid rgb(170, 170, 170);
+	padding: 6px;
 }
 
 #desc {
-    display: block;
-    border: none;
+	display: block;
+	border: none;
 }
 
 #category-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    border-bottom: 1px solid rgb(170, 170, 170);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	border-bottom: 1px solid rgb(170, 170, 170);
 }
 
 #category-container > * {
-    display: inline-block;
-    border-right: 1px solid rgb(170, 170, 170);
-    width: 33%;
-
+	display: inline-block;
+	border-right: 1px solid rgb(170, 170, 170);
+	width: 33%;
 }
 
-
 label {
-    display: inline-block;
-    text-transform: uppercase;
-    color:rgb(109, 107, 107);
-    padding: 6px;
+	display: inline-block;
+	text-transform: uppercase;
+	color: rgb(109, 107, 107);
+	padding: 6px;
 }
 
 input {
-    border: none;
-    display: block;
-    background-color: white;
-    padding: 4px;
-    width: 100%;
-    height: auto;
-    font-size: 0.93rem;
-    /* background-color: red; */
+	border: none;
+	display: block;
+	background-color: white;
+	padding: 4px;
+	width: 100%;
+	height: auto;
+	font-size: 0.93rem;
+	/* background-color: red; */
 }
 
-input:focus, input:active {
-    border: none;
-    outline: none;
+input:focus,
+input:active {
+	border: none;
+	outline: none;
 }
 
-input[type="submit"]{
-    margin-left: 0;
-    cursor: pointer;
-    font-size: 1.34rem;
+input[type="submit"] {
+	margin-left: 0;
+	cursor: pointer;
+	font-size: 1.34rem;
 }
 input[type="submit"]:hover {
-    box-shadow: 0 0 4 2 red;
-    background-color: rgb(8, 176, 218);
+	box-shadow: 0 0 4 2 red;
+	background-color: rgb(8, 176, 218);
 }
-input[type="date"]{
-    font-size: 1.2rem;
-    width: 60%;
-    padding: 2px;
+input[type="date"] {
+	font-size: 1.2rem;
+	width: 60%;
+	padding: 2px;
 }
 select {
-    border: none;
-    background-color: white;
-    display: block;
-    width: 60%;
-    padding: 4px;
-    font-size: 0.93rem;
+	border: none;
+	background-color: white;
+	display: block;
+	width: 60%;
+	padding: 4px;
+	font-size: 0.93rem;
 }
 
 option {
-    width: 100%;
-    font-size: 0.93rem;
-    /* background-color: red; */
-}
-
-
-.todo-container {
-    /* border: 1px solid cyan; */
+	width: 100%;
+	font-size: 0.93rem;
+	/* background-color: red; */
 }
 
 .todo-container ul {
-    display: flex;
-    flex-flow: column wrap;
+	display: flex;
+	flex-flow: column wrap;
 }
 
 .todo-container ul li {
-    list-style-type: none;
+	list-style-type: none;
+	display: flex;
+	flex-flow: row wrap;
+	border-top: 1px solid black;
+	margin-left: -40px !important;
+	padding: 6px;
+	padding-left: 12px;
+}
+
+.todo-list {
     display: flex;
-    flex-flow: row wrap;
-    border-top: 1px solid black;
-    margin-left: -40px !important;
-    padding: 6px;
-    padding-left: 12px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .todo-details {
-    width: 50%;
-    /* background-color: yellow; */
+	width: 65%;
 }
 
-.todo-details p{
-    margin: 0;
+.todo-details p {
+	margin: 0;
 }
-
 
 .desc-para {
-    /* border: 1px solid red; */
-    padding: 4px;
-    color: rgb(109, 107, 107);
+	/* border: 1px solid red; */
+	padding: 4px;
+	color: rgb(109, 107, 107);
 }
 
 .date-para {
-    /* border: 1px solid red; */
-    padding: 4px;
-    font-size: 0.7rem;
-    color: gray;
+	/* border: 1px solid red; */
+	padding: 4px;
+	font-size: 0.7rem;
+	color: gray;
+}
+
+    
+.todo-category button {
+    border: none;
+    background-color: aqua;
+    padding: 6px 8px;
 }
 
 .todo-actions {
-    width: 50%;
-    /* background-color: lightgoldenrodyellow; */
-    
+	width: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.todo-actions .btn-links {
+	width: auto;
+	height: 18px;
+    color:rgb(197, 208, 211);
+	text-decoration: none;
+	display: inline-block;
+	margin: 8px;
+	padding: 6px;
+}
+
+.done-btn {
+    background-color: rgb(121, 120, 120);
+}
+
+.undone-btn {
+    background-color: rgb(14, 192, 91);
+}
+.delete-btn {
+    background-color: red;
 }

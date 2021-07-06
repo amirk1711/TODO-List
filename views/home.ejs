@@ -1,65 +1,92 @@
 <html>
-    <head>
-        <title>
-            My Tasks
-        </title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+	<head>
+		<title>My Tasks</title>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+			integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
 
-    <body>
+	<body>
+		<h1>TODO App</h1>
 
-        <h1>TODO App</h1>
+		<form action="/add-task" method="POST">
+			<div id="desc-container">
+				<label for="desc">Description</label>
+				<input
+					type="text"
+					name="description"
+					id="desc"
+					placeholder="What do you need to do?"
+				/>
+			</div>
 
-        <form action="/add-task" method="POST">
-            <div id="desc-container">
-                <label for="desc">Description</label>
-                <input type="text" name="description" id="desc" placeholder="What do you need to do?">
-            </div>
-            
-            <div id="category-container">
-                <div>
-                    <label for="category">Category</label>
-                    <select name="category" id="category">
-                        <option value="Personal">Personal</option>
-                        <option value="Work">Work</option>
-                        <option value="School">School</option>
-                        <option value="Cleaning">Cleaning</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <label for="dueDate">Due Date</label>
-                    <input type="date" name="dueDate" value="dd-mm-yyyy" id="dueDate">
-                </div>
-                
-                <input type="submit" value="Add Task">
-            </div>
+			<div id="category-container">
+				<div>
+					<label for="category">Category</label>
+					<select name="category" id="category">
+						<option value="Personal">Personal</option>
+						<option value="Work">Work</option>
+						<option value="School">School</option>
+						<option value="Cleaning">Cleaning</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
 
-        </form>
+				<div>
+					<label for="dueDate">Due Date</label>
+					<input type="date" name="dueDate" value="yyyy-MM-dd" id="dueDate" />
+				</div>
+				<input type="hidden" value="false" name="isCompleted" />
+				<input type="submit" value="Add Task" />
+			</div>
+		</form>
 
+		<div class="todo-container">
+			<ul>
+				<% for(let i = 0; i < todo_list.length; i++){%>
+				<li class="todo-list">
+					<div class="todo-details">
+						<p class="desc-para"><%= todo_list[i].description %></p>
+						<p class="date-para">
+							<i class="far fa-calendar-alt" aria-hidden="true"></i> <%=
+							todo_list[i].dueDate %>
+						</p>
+					</div>
+					<div class="todo-category">
+						<button><%= todo_list[i].category %></button>
+					</div>
+					<div class="todo-actions">
+						<% if(todo_list[i].isCompleted){ %>
+						<a
+							href="/complete-task/?_id=<%= todo_list[i]._id %>"
+							class="btn-links undone-btn"
+						>
+							Done
+						</a>
+						<% }else{ %>
+						<a
+							href="/complete-task/?_id=<%= todo_list[i]._id %>"
+							class="btn-links done-btn"
+						>
+							Done
+						</a>
+						<% } %>
 
-        
-        <div class="todo-container">
-            <ul>
-                <% for(let i = 0; i < todo_list.length; i++){%>
-                    <li>
-                        <div class="todo-details">
-                            <p class="desc-para"><%= todo_list[i].description %></p>
-                            <!-- <p><%= todo_list[i].category %></p> -->
-                            <!-- <p><%= todo_list[i].dueDate %></p> -->
-                            <p class="date-para"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 25, 2019</p>
-                        </div>
-                        
-                        <div class="todo-actions">
-                            <a href="/complete-task/?_id=<%= todo_list[i]._id %>"> Done </a>
-                            <a href="/delete-task/?_id=<%= todo_list[i]._id %>"> Delete </a>
-                        </div>
-                    </li>  
-                    
-                <% } %>
-            </ul>
-        </div>
-    </body>
+						<a
+							href="/delete-task/?_id=<%= todo_list[i]._id %>"
+							class="btn-links delete-btn"
+						>
+							Delete
+						</a>
+					</div>
+				</li>
+
+				<% } %>
+			</ul>
+		</div>
+	</body>
 </html>
